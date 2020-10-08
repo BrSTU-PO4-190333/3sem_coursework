@@ -11,10 +11,12 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">id</th>
-                <th scope="col">Name</th>
                 <th scope="col">Model</th>
+                <th scope="col">Name</th>
                 <th scope="col">On box</th>
-                <th scope="col">Cost</th>
+                <th scope="col">Weight</th>
+                <th scope="col">M<sup>3</sup></th>
+                <th scope="col">Series</th>
             </tr>
         </thead>
         <tbody>
@@ -28,9 +30,11 @@
                     echo "<tr>"
                             . "<td scope=\"row\">" . $item['id'] . "</td>"
                             . "<td>" . $item['model'] . "</td>"
-                            . "<td>" . "-" . "</td>"
-                            . "<td>" . "0" . "</td>"
-                            . "<td>" . "00.00" . "</td>"
+                            . "<td>" . $item['name'] . "</td>"
+                            . "<td>" . $item['onBox'] . "</td>"
+                            . "<td>" . $item['weight'] . "</td>"
+                            . "<td>" . $item['m3'] . "</td>"
+                            . "<td>" . $item['series'] . "</td>"
                         . "</tr>";
                 }
 

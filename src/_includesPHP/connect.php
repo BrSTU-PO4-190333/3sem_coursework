@@ -3,9 +3,9 @@
     $site = "localhost";
     $userDB = "root";
     $passwordDB = "root";
-    $database = "q";
 
-    $table = "w";
+    $database = "productsdb";
+    $table = "productstable";
 
     // = = = = = - - - - - = = = = = conntect to table
     $connect = new mysqli($site, $userDB, $passwordDB, $database);
