@@ -1,0 +1,20 @@
+\def\No{\textnumero} % Символ номера
+
+% Графа 1 (наименование изделия/документа)
+%\ESKDcolumnI{\titlePageTopic}
+
+% Графу 2 (обозначение документа)
+%\ESKDcolumnII{}
+
+% Графа 4 (литералы)
+\ESKDcolumnIVfII{К}
+
+\ESKDcolumnIX{БрГТУ}
+
+% Графа 11 (фамилии лиц, подписывающих документ) задают команды
+% Разработ.
+\ESKDcolumnXIfI{\titlePageAuthorSurname}
+% Пров.
+\ESKDcolumnXIfII{\titlePageLeaderSurname}
+% Н. контр.
+\ESKDcolumnXIfV{\titlePageConsultantSurname} 
