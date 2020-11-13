@@ -3,6 +3,7 @@
 \usepackage{../_sty/title_variables}
 \usepackage{../_sty/eskd_variables}
 \usepackage{../_sty/sourceCode}
+\usepackage{../_sty/tableOfContent}
 
 % Графа 1 (наименование изделия/документа)
 \ESKDcolumnI{\titlePageTopic\\Пояснительная записка}
@@ -11,10 +12,22 @@
 \ESKDsignature{\code-\codePZ}
 
 \begin{document}
+    % Титульная страница
     \begin{ESKDtitlePage}
         \input{../_input/titlePagePZ.tex}
     \end{ESKDtitlePage}
-    \hspace{0pt}
+    % Содержание
+    \tableofcontents 
     \newpage
-    \hspace{0pt}
+    % Введение
+    \input{../_input/introduction.tex} 
+    % 1. Постановка задачи
+    \input{../_input/formulationOfTheProblem.tex} 
+    % 2. Разработка алгоритмов
+    % 3. Разработка программы
+    % 4. Тестирование программы
+    % Заключение
+    % Список использованных источников
+    % Приложение А. Текст программы
+    % Приложение Б. Схема алгоритма
 \end{document}
