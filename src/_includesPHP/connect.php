@@ -1,8 +1,8 @@
 <?php
     // = = = = = - - - - - = = = = = global vars
     $site = "localhost";
-    $userDB = "root";
-    $passwordDB = "root";
+    $userDB = "admin";
+    $passwordDB = "111111";
 
     $database = "productsdb";
     $table = "productstable";
