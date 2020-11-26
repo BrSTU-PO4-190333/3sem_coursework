@@ -30,6 +30,75 @@ FLUSH PRIVILEGES;
 
 \hspace{0pt}\\
 
+Создаем директорию для сайта
+
+\begin{verbatim}
+sudo mkdir /var/www/mysite
+\end{verbatim}
+
+Проект кладём в директорию /var/www/mysite.
+
+Создаем файл с настройками на подобии стандартного:
+
+\begin{verbatim}
+sudo cp /etc/apache2/sites-available/000-default.conf
+    /etc/apache2/sites-available/mysite.conf
+\end{verbatim}
+
+Открываем файл:
+
+\begin{verbatim}
+sudo nano /etc/apache2/sites-available/mysite.conf
+\end{verbatim}
+
+Добавляем домен и меняем путь:
+
+\begin{verbatim}
+ServerName mysite
+DocumentRoot /var/www/mysite/src
+\end{verbatim}
+
+Для сохранения жмём "Ctrl" + "X", "y", "Enter".
+
+Подлючаем файл с настройками:
+
+\begin{verbatim}
+sudo a2ensite mysite
+\end{verbatim}
+
+Перезагружаем Apache:
+
+\begin{verbatim}
+sudo systenctl reload apache2
+\end{verbatim}
+
+В файле меняем строчку "AllowOverride None" на "AllowOverride All"
+
+\begin{verbatim}
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+#       AllowOverride None
+        AllowOverride All
+        Require all granted
+</Directory>
+\end{verbatim}
+
+Теперь будет работать файл настроек ".htaccess". Создаем файл в директории
+
+\begin{verbatim}
+/var/www/mysite/src
+\end{verbatim}
+
+Чтобы отображались ошибки PHP заносим поля:
+
+\begin{verbatim}
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+\end{verbatim}
+
+\hspace{0pt}\\
+
 Задания выполнялись на языке программирования PHP. Верстка сайта велась по библиотеке Bootstrap. Для выполнения задачи на языке программирования PHP не потребовалось подключение библиотек. 
 
 \hspace{0pt}
