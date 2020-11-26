@@ -1,0 +1,206 @@
+\newpage
+
+\section{РАЗРАБОТКА ПРОГРАММЫ}
+
+\subsection{Выбор средств программирования}
+
+Сервер: LAMP - Linux Apache2 MySQL PHP.
+
+Для установки сервера на Ubuntu подобных системах использовались команды:
+
+\begin{verbatim}
+sudo apt update
+
+sudo apt install apache2 php libapache2-mod-php php-mysql mysql-server phpmyadmin
+\end{verbatim}
+
+После установки пакета "phpmyadmin" консоль предложит придумать пароль. Этот пароль будет пользователя под логином "phpmyadmin". Заходим на сраницу localhost/phpmyadmin под логином "phpmyadmin" и придуманым паролем - и видем, что мы не можем создавать базы данных. Для создания пользователя с такими привилегиями выполним скрипты:
+
+\begin{verbatim}
+sudo mysql -u root -p
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY '111111';
+
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRAND OPTION;
+
+FLUSH PRIVILEGES;
+\end{verbatim}
+
+Заходим на сраницу localhost/phpmyadmin под логином admin и паролем 111111 - и теперь можем создавать базу данных.
+
+\hspace{0pt}\\
+
+Задания выполнялись на языке программирования PHP. Верстка сайта велась по библиотеке Bootstrap. Для выполнения задачи на языке программирования PHP не потребовалось подключение библиотек. 
+
+\hspace{0pt}
+
+Среда разработки: Visual Studio Code.
+
+\hspace{0pt}\\
+
+ОС: Linux / Windows (при Windows можно использовать Open Server вместо LAMP)
+
+\hspace{0pt}\\
+
+В ходе написания проекта, проект был разбит на модули.
+
+\hspace{0pt}\\
+
+Использованы модули-сраницы: 
+
+\begin{itemize}
+    \item add
+    \item show
+\end{itemize}
+
+\hspace{0pt}\\
+
+Использованы модули-скрипты: 
+
+\begin{itemize}
+    \item form
+\end{itemize}
+
+\hspace{0pt}\\
+
+Использованы многоразовые модули (для include): 
+
+\begin{itemize}
+    \item connect
+    \item header
+    \item menu
+\end{itemize}
+
+\newpage
+
+\subsection{Разработка модулей}
+
+\textbf{Модуль add}
+
+\underline{Подключённые модули}:
+
+\begin{enumerate}
+    \item header
+    \item menu
+\end{enumerate}
+
+\underline{Входные параметры}:
+
+\begin{enumerate}
+    \item Нет
+\end{enumerate}
+
+\underline{Назначение}: страница, которая имеет поля. После отправки, которые будет добавлены в базу MySQL.
+
+\underline{Возвращаемые данные}: добавлены поля в базу данных MySQL.
+
+\hspace{0pt}\\
+
+% = = =
+
+\textbf{Модуль show}
+
+\underline{Подключённые модули}:
+
+\begin{enumerate}
+    \item header
+    \item menu
+    \item connect
+\end{enumerate}
+
+\underline{Входные параметры}:
+
+\begin{enumerate}
+    \item Нет
+\end{enumerate}
+
+\underline{Назначение}: страница, которая возвращает код HTML с удобочитаемой таблицой с даными.
+
+\underline{Возвращаемые данные}: страница с отрисованной таблицей HTML.
+
+\hspace{0pt}\\
+
+% = = =
+
+\textbf{Модуль form}
+
+\underline{Подключённые модули}:
+
+\begin{enumerate}
+    \item connect
+\end{enumerate}
+
+\underline{Входные параметры}:
+
+\begin{enumerate}
+    \item model - модель (желаемый тип - строка)
+    \item name - имя (желаемый тип - строка)
+    \item onBox - количество в коробке (желаемый тип - не отрицательное целочисленное значение)
+    \item weight - вес (желаемый тип - число с плавающей точкой)
+    \item m3 - объем (желаемый тип - число с плавающей точкой)     
+    \item series - серия (желаемый тип - строка) 
+\end{enumerate}
+
+\underline{Назначение}: скрипт, который принимает входный параметры по средствам POST запросов. Использует входные параметры для добавления в базу данных.
+
+\underline{Возвращаемые данные}: данные появяться в базе MySQL. Сраница перенаправаться в корень.
+
+\hspace{0pt}\\
+
+% = = =
+
+\textbf{Модуль connect}
+
+\underline{Входные параметры}:
+
+\begin{enumerate}
+    \item site - сайт (желаемы тип - строка, например,  "localhost")
+    \item userDB - логин в базе данных (желаемый тип - строка, например, "admin")
+    \item passwordDB - пароль от базы данных (желаемый тип строка, например, "111111")
+    \item database - имя базы данных (желаемый тип - строка, например, "productsdb")
+    \item table - имя таблицы (желаемый тип - строка, например, "productstable")
+\end{enumerate}
+
+\underline{Назначение}: скрипт, который под входными данными подключится к базе данных.
+
+\underline{Возвращаемые данные}: удачное/неудачное подключение к базе данных
+
+\hspace{0pt}\\
+
+% = = =
+
+\textbf{Модуль header}
+
+\underline{Входные параметры}:
+
+\begin{enumerate}
+    \item title - название страницы (желаемый тип - строка)
+\end{enumerate}
+
+\underline{Назначение}: страница с кодом HTML c заполненым тегом head.
+
+\underline{Возвращаемые данные}: вставленый код HTML.
+
+\hspace{0pt}\\
+
+% = = =
+
+\newpage
+
+\textbf{Модуль menu}
+
+\underline{Входные параметры}:
+
+\begin{enumerate}
+    \item нет
+\end{enumerate}
+
+\underline{Назначение}: страница с кодом HTML c заполненым меню.
+
+\underline{Возвращаемые данные}: вставленый код HTML.
+
+\hspace{0pt}\\
+
+% = = =
+
+\newpage
