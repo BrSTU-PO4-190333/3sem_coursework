@@ -82,7 +82,7 @@
                     }
                 }
             }
-            else if ($sort_by == "obBox")
+            else if ($sort_by == "onBox")
             {
                 for ($i = 0; $i < count($arr); $i += 1)
                 {
