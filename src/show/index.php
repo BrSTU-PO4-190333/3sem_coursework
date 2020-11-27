@@ -145,6 +145,8 @@
 
         }
     ?>
+    
+    <p style="text-align: right;"><a class="btn btn-outline-success" href="file.csv" target="_blank">Save as CSV</a></p>
 
     <table class="table">
         <caption>Table. Show</caption>
@@ -198,3 +200,13 @@
         </tbody>
     </table>
 </div>
+
+<?php
+    $fp = fopen('file.csv', 'w');
+
+    foreach ($arr as $fields) {
+        fputcsv($fp, $fields);
+    }
+
+    fclose($fp);
+?>
