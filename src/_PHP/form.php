@@ -6,6 +6,25 @@
     $m3     = $_POST['m3'];
     $series = $_POST['series'];
 
+    if (!is_numeric($onBox))
+    {
+        echo "<p>Тип \$onBox неверный (нужно целое число)</p>";
+        echo "<p>".is_numeric($onBox)."</p>";
+        exit;
+    }
+        
+    if (!is_numeric($weight))
+    {
+        echo "<p>Тип \$weight неверный (нужно число с плавающей точкой)</p>";
+        exit;
+    }
+        
+    if (!is_numeric($m3))
+    {
+        echo "<p>Тип \$m3 неверный (нужно число с плавающей точкой)</p>";
+        exit;
+    }
+
     include "../_includesPHP/connect.php";
 
     // add element to table
@@ -19,5 +38,5 @@
     // = = = = = - - - - - = = = = = close connect
     $connect->close();
 
-    header('location: \ ');
+    header('location: \show');
 ?>
