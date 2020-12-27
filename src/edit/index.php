@@ -1,6 +1,6 @@
 <?php
     $title = "Add element page";
-    include '../_includesPHP/header.php';
+    include '../_includesHTML/header.php';
     include '../_includesPHP/menu.php';
 
     $id  = isset($_GET['id'])        ? $_GET['id']       : "-1";

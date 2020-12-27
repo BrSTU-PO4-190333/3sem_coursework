@@ -1,6 +1,6 @@
 <?php
     $title = "Show";
-    include '../_includesPHP/header.php';
+    include '../_includesHTML/header.php';
     include '../_includesPHP/menu.php';
     include '../_includesPHP/connect.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
     $title = "Add element page";
-    include '../_includesPHP/header.php';
+    include '../_includesHTML/header.php';
     include '../_includesPHP/menu.php';
 
     $model  = "920100";
