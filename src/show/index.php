@@ -11,13 +11,21 @@
         include '../_includesPHP/deleteElement.php'; //удаление элемента по индексу
         include '../_includesPHP/getArrayFromDB.php'; //получение массива из базы данных
         $connect->close(); // разорвали соединение
+        include '../_includesPHP/sortArray.php'; //сортировка по Get запросу
+        include '../_includesPHP/saveCSV.php'; //сохранение массива в CSV файл
     ?>
 
-    <?php
-        include '../_includesPHP/sortArray.php'; //сортировка по Get запросу
-    ?>
-    
-    <p style="text-align: right;"><a class="btn btn-outline-success" href="file.csv" target="_blank">Save as CSV</a></p>
+    <p
+        style="text-align: right;"
+    >
+        <a
+            class="btn btn-outline-success"
+            href="file.csv"
+            target="_blank"
+        >
+            Save as CSV
+        </a>
+    </p>
 
     <table class="table">
         <caption>Table. Show</caption>
@@ -71,7 +79,3 @@
         </tbody>
     </table>
 </div>
-
-<?php
-    include '../_includesPHP/saveCSV.php';
-?>
