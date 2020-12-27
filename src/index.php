@@ -1,5 +1,5 @@
 <?php
     $title = "Home page";
-    include '_includesPHP/header.php';
-    include '_includesPHP/menu.php';
+    include '_includesHTML/header.php';
+    include '_includesHTML/menu.php';
 ?>
