@@ -12,7 +12,7 @@
         include '../_includesPHP/getArrayFromDB/getArrayFromDB.php'; //получение массива из базы данных
         $connect->close(); // разорвали соединение
         include '../_includesPHP/sortArray.php'; //сортировка по Get запросу
-        include '../_includesPHP/saveCSV.php'; //сохранение массива в CSV файл
+        include '../_includesPHP/saveCSV/saveCSV.php'; //сохранение массива в CSV файл
     ?>
 
     <p
