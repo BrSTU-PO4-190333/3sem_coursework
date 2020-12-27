@@ -1,7 +1,7 @@
 <?php
     $title = "Add element page";
     include '../_includesHTML/header.php';
-    include '../_includesPHP/menu.php';
+    include '../_includesHTML/menu.php';
 
     $model  = "920100";
     $name   = "2 Gand Earthed Socket";

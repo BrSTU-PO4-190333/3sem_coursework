@@ -1,7 +1,7 @@
 <?php
     $title = "Add element page";
     include '../_includesHTML/header.php';
-    include '../_includesPHP/menu.php';
+    include '../_includesHTML/menu.php';
 
     $id  = isset($_GET['id'])        ? $_GET['id']       : "-1";
     $model  = isset($_GET['model'])     ? $_GET['model']    : "920100";

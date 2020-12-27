@@ -1,7 +1,7 @@
 <?php
     $title = "Create table";
     include '../_includesHTML/header.php';
-    include '../_includesPHP/menu.php';
+    include '../_includesHTML/menu.php';
     include '../_includesPHP/connect.php';
 ?>
 
