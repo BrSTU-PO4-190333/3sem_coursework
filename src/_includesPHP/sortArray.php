@@ -99,7 +99,7 @@
             {
                 for ($j = 0; $j < count($arr); $j += 1)
                 {
-                    if ( strcasecmp($arr[$i]['series'], $arr[$j]['series']) > 0 )
+                    if ( strcasecmp($arr[$i]['series'], $arr[$j]['series']) < 0 )
                     {
                         $temp = $arr[$i];
                         $arr[$i] = $arr[$j];
