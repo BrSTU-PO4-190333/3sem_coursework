@@ -28,7 +28,7 @@
     include "../_includesPHP/connect.php";
 
     // add element to table
-    $sql = "INSERT $table (model, name, onBox, weight, m3, series)
+    $sql = "INSERT $table (`model`, `name`, `onBox`, `weight`, `m3`, `series`)
             VALUES ('$model', '$name', '$onBox', '$weight', '$m3', '$series')";
     if ($connect->query($sql) != TRUE)
     {

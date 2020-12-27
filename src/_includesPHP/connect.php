@@ -2,7 +2,7 @@
     // = = = = = - - - - - = = = = = global vars
     $site = "localhost";
     $userDB = "admin";
-    $passwordDB = "111111";
+    $passwordDB = "333333";
 
     $database = "productsdb";
     $table = "productstable";
