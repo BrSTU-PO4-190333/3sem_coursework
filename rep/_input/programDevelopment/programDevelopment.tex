@@ -98,21 +98,93 @@
 
 \newpage
 
+
+
 \subsubsection{Создание нового пользователя <<phpmyadmin>> с полными правами доступа}
 
-Заходим на сраницу <<\textbf{localhost/phpmyadmin}>> под логином <<phpmyadmin>> и придуманым паролем - и видем, что мы не можем создавать базы данных. Для создания пользователя с такими привилегиями выполним скрипты:
+Заходим на сраницу <<\textbf{localhost/phpmyadmin}>> под логином <<phpmyadmin>> и придуманым паролем <<222222>> - и видем, что мы не можем создавать базы данных. Создадим пользователя с такими правами.
 
-\begin{verbatim}
-sudo mysql -u root -p
+Вводим команду \textbf{sudo mysql -u root -p}. Далее вводим пароль от супер пользователя нашей системы. Далее вводим придуманный пароль <<222222>> для нашего <<phpmyadmin>>. Скриншот терминала на рисунке~\ref{fig:make-phpmyadmin-superuser-step-0} (стр.~\pageref{fig:make-phpmyadmin-superuser-step-0}).
 
-CREATE USER 'admin'@'localhost' IDENTIFIED BY '111111';
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/make-phpmyadmin-superuser/make-user-step-0.png}
+    }
+    \caption{Входим в среду ввода скриптов MySQL}
+    \label{fig:make-phpmyadmin-superuser-step-0}
+\end{figure}
 
-GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRAND OPTION;
+Теперь мы можем вводить скрипты на языкы MySQL. Скриншот терминала на рисунке~\ref{fig:make-phpmyadmin-superuser-step-1} (стр.~\pageref{fig:make-phpmyadmin-superuser-step-1}).
 
-FLUSH PRIVILEGES;
-\end{verbatim}
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/make-phpmyadmin-superuser/make-user-step-1.png}
+    }
+    \caption{Среда ввода скриптов MySQL}
+    \label{fig:make-phpmyadmin-superuser-step-1}
+\end{figure}
 
-Заходим на сраницу localhost/phpmyadmin под логином admin и паролем 111111 - и теперь можем создавать базу данных.
+Создаем пользователя <<admin>> с паролем <<333333>> с помощью команды \textbf{CREATE USER 'admin'@'localhost' IDENTIFIED BY '333333';}. Скриншот терминала на рисунке~\ref{fig:make-phpmyadmin-superuser-step-2} (стр.~\pageref{fig:make-phpmyadmin-superuser-step-2}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/make-phpmyadmin-superuser/make-user-step-2.png}
+    }
+    \caption{Создаем пользователя и пароль с помощью скрипта}
+    \label{fig:make-phpmyadmin-superuser-step-2}
+\end{figure}
+
+Выдаем пользователю <<admin>> все права с помощью команды \sloppy \textbf{GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;}. Скриншот на рисунке~\ref{fig:make-phpmyadmin-superuser-step-3} (стр.~\pageref{fig:make-phpmyadmin-superuser-step-3}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/make-phpmyadmin-superuser/make-user-step-3.png}
+    }
+    \caption{Выдаем права пользователю с помощью скрипта}
+    \label{fig:make-phpmyadmin-superuser-step-3}
+\end{figure}
+
+Перезагрузим талицы предоставления с компощью команды \textbf{FLUSH PRIVILEGES;}. Скриншот на рисунке~\ref{fig:make-phpmyadmin-superuser-step-4} (стр.~\pageref{fig:make-phpmyadmin-superuser-step-4}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/make-phpmyadmin-superuser/make-user-step-4.png}
+    }
+    \caption{Перезагружаем таблицу предоставления}
+    \label{fig:make-phpmyadmin-superuser-step-4}
+\end{figure}
+
+Закрываем ввод MySql скриптов с помощью команды \textbf{exit}. Скриншот на рисунке~\ref{fig:make-phpmyadmin-superuser-step-5} (стр.~\pageref{fig:make-phpmyadmin-superuser-step-5}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/make-phpmyadmin-superuser/make-user-step-5.png}
+    }
+    \caption{Закрываем среду MySQL}
+    \label{fig:make-phpmyadmin-superuser-step-5}
+\end{figure}
+
+Заходим на сраницу <<\textbf{localhost/phpmyadmin}>> под логином <<admin>> и паролем <<333333>>. Скриншот на рисунке~\ref{fig:make-phpmyadmin-superuser-step-6} (стр.~\pageref{fig:make-phpmyadmin-superuser-step-6}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/make-phpmyadmin-superuser/make-user-step-6.png}
+    }
+    \caption{Страница <<localhost/phpmyadmin>>}
+    \label{fig:make-phpmyadmin-superuser-step-6}
+\end{figure}
+
+Теперь можем создавать базу данных. Скриншот на рисунке~\ref{fig:make-phpmyadmin-superuser-step-7} (стр.~\pageref{fig:make-phpmyadmin-superuser-step-7}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/make-phpmyadmin-superuser/make-user-step-7.png}
+    }
+    \caption{Залогиненный пользователь <<admin>> в <<phpmyadmin>>}
+    \label{fig:make-phpmyadmin-superuser-step-7}
+\end{figure}
+
+\newpage
 
 \subsubsection{Выделяем свой домен}
 
