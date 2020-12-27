@@ -12,7 +12,7 @@
 
 Браузер: \textbf{Mozilla Firefox 81.0.2}
 
-\subsubsection{Установка LAMP}
+\subsubsection*{Установка LAMP}
 
 Перед установкой LAMP обновляем список пакетов, используя команду \textbf{sudo apt update}. Устанавливаем LAMP командой \textbf{sudo apt install apache2 php libapache2-mod-php php-mysql mysql-server phpmyadmin}.
 Скриншот терминала на рисунке~\ref{fig:sudo-apt-install-apache2} (стр.~\pageref{fig:sudo-apt-install-apache2}).
@@ -110,7 +110,7 @@
 
 % = = = = =
 
-\subsubsection{Создание нового пользователя <<phpmyadmin>> с полными правами доступа}
+\subsubsection*{Создание нового пользователя <<phpmyadmin>> с полными правами доступа}
 
 Заходим на сраницу <<\textbf{localhost/phpmyadmin}>> под логином <<phpmyadmin>> и придуманым паролем: <<222222>> - и видем, что мы не можем создавать базы данных. Создадим пользователя с такими правами. Вводим команду \textbf{sudo mysql -u root -p}. Далее вводим пароль от супер пользователя <<pavel>> нашей системы. Далее вводим придуманный пароль <<222222>> для нашего <<phpmyadmin>>.
 Скриншот терминала на рисунке~\ref{fig:make-phpmyadmin-superuser-step-0} (стр.~\pageref{fig:make-phpmyadmin-superuser-step-0}).
@@ -204,7 +204,7 @@
 
 % = = = = =
 
-\subsubsection{Выделяем свой домен}
+\subsubsection*{Выделяем свой домен}
 
 Создаем директорию для сайта. Выполняем команду \textbf{sudo mkdir /var/www/mysite}.
 Скриншот терминала на рисунке~\ref{fig:sudo-mkdir-mysite} (стр.~\pageref{fig:sudo-mkdir-mysite}).
@@ -383,7 +383,7 @@
 
 % = = = = =
 
-\subsubsection{Запускаем возможность работы файла настроек <<.htaccess>>}
+\subsubsection*{Запускаем возможность работы файла настроек <<.htaccess>>}
 
 В файле меняем строчку "AllowOverride None" на "AllowOverride All"
 
@@ -402,7 +402,7 @@
 /var/www/mysite/src
 \end{verbatim}
 
-\subsubsection{Включаем debug mode PHP}
+\subsubsection*{Включаем debug mode PHP}
 
 Чтобы отображались ошибки PHP заносим поля:
 
@@ -412,42 +412,32 @@ php_flag display_errors on
 php_flag html_errors on
 \end{verbatim}
 
-\hspace{0pt}\\
+\newpage
 
-Задания выполнялись на языке программирования PHP. Верстка сайта велась по библиотеке Bootstrap. Для выполнения задачи на языке программирования PHP не потребовалось подключение библиотек. 
+% = = = = =
 
-\hspace{0pt}
+\subsection{Разработка модулей}
 
-Среда разработки: Visual Studio Code.
 
-\hspace{0pt}\\
 
-ОС: Linux / Windows (при Windows можно использовать Open Server вместо LAMP)
-
-\hspace{0pt}\\
-
-В ходе написания проекта, проект был разбит на модули.
-
-\hspace{0pt}\\
-
-Использованы модули-сраницы: 
+\subsubsection*{Использованы модули-сраницы}
 
 \begin{itemize}
     \item add
     \item show
 \end{itemize}
 
-\hspace{0pt}\\
 
-Использованы модули-скрипты: 
+
+\subsubsection*{Использованы модули-скрипты}
 
 \begin{itemize}
     \item form
 \end{itemize}
 
-\hspace{0pt}\\
 
-Использованы многоразовые модули (для include): 
+
+\subsubsection*{Использованы многоразовые модули (для include)}
 
 \begin{itemize}
     \item connect
@@ -455,11 +445,9 @@ php_flag html_errors on
     \item menu
 \end{itemize}
 
-\newpage
 
-\subsection{Разработка модулей}
 
-\textbf{Модуль add}
+\subsubsection*{Модуль add}
 
 \underline{Подключённые модули}:
 
@@ -478,11 +466,9 @@ php_flag html_errors on
 
 \underline{Возвращаемые данные}: добавлены поля в базу данных MySQL.
 
-\hspace{0pt}\\
-
 % = = =
 
-\textbf{Модуль show}
+\subsubsection*{Модуль show}
 
 \underline{Подключённые модули}:
 
@@ -502,11 +488,9 @@ php_flag html_errors on
 
 \underline{Возвращаемые данные}: страница с отрисованной таблицей HTML.
 
-\hspace{0pt}\\
-
 % = = =
 
-\textbf{Модуль form}
+\subsubsection*{Модуль form}
 
 \underline{Подключённые модули}:
 
@@ -529,11 +513,9 @@ php_flag html_errors on
 
 \underline{Возвращаемые данные}: данные появяться в базе MySQL. Сраница перенаправаться в корень.
 
-\hspace{0pt}\\
-
 % = = =
 
-\textbf{Модуль connect}
+\subsubsection*{Модуль connect}
 
 \underline{Входные параметры}:
 
@@ -549,11 +531,9 @@ php_flag html_errors on
 
 \underline{Возвращаемые данные}: удачное/неудачное подключение к базе данных
 
-\hspace{0pt}\\
-
 % = = =
 
-\textbf{Модуль header}
+\subsubsection*{Модуль header}
 
 \underline{Входные параметры}:
 
@@ -565,13 +545,9 @@ php_flag html_errors on
 
 \underline{Возвращаемые данные}: вставленый код HTML.
 
-\hspace{0pt}\\
-
 % = = =
 
-\newpage
-
-\textbf{Модуль menu}
+\subsubsection*{Модуль menu}
 
 \underline{Входные параметры}:
 
@@ -582,8 +558,6 @@ php_flag html_errors on
 \underline{Назначение}: страница с кодом HTML c заполненым меню.
 
 \underline{Возвращаемые данные}: вставленый код HTML.
-
-\hspace{0pt}\\
 
 % = = =
 
