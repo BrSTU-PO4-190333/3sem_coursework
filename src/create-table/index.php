@@ -2,7 +2,7 @@
     $title = "Create table";
     include '../_includesHTML/header.php';
     include '../_includesHTML/menu.php';
-    include '../_includesPHP/connect.php';
+    include '../_includesPHP/connect/connect.php';
 ?>
 
 <div class="container">
@@ -42,7 +42,7 @@
         }
 
         $sql = "ALTER TABLE `$table`
-        MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;"; //SQL запрос
+        MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;"; //SQL запрос
         $text = "Скрипт, который делает икремент поля id";
         if ($connect->query($sql) === TRUE)
         {

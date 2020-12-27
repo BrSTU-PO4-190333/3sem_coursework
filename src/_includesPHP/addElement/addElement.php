@@ -25,7 +25,7 @@
         exit;
     }
 
-    include "../../_includesPHP/connect.php";
+    include "../../_includesPHP/connect/connect.php";
 
     // add element to table
     $sql = "INSERT $table (`model`, `name`, `onBox`, `weight`, `m3`, `series`)

@@ -2,7 +2,7 @@
     $title = "Create table";
     include '../_includesHTML/header.php';
     include '../_includesHTML/menu.php';
-    include '../_includesPHP/connect.php';
+    include '../_includesPHP/connect/connect.php';
 ?>
 
 <div class="container">
