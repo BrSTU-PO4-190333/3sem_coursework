@@ -15,7 +15,7 @@
 
 <div class="container">
     <form
-        action="../_includesPHP/editElement.php"
+        action="../_includesPHP/editElement/editElement.php"
         method="post"
     >
         <input

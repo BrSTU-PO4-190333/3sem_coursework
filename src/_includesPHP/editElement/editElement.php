@@ -26,7 +26,7 @@
         exit;
     }
 
-    include "../_includesPHP/connect.php";
+    include "../../_includesPHP/connect.php";
 
     $sql = "UPDATE $table SET "
         ."model = '$model',"
