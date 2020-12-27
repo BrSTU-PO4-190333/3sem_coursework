@@ -14,7 +14,10 @@
 ?>
 
 <div class="container">
-    <form action="/_PHP/script_editForm.php" method="post">
+    <form
+        action="../_includesPHP/editElement.php"
+        method="post"
+    >
         <input
             type="hidden"
             name="id"
