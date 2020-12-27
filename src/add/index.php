@@ -12,7 +12,10 @@
 ?>
 
 <div class="container">
-    <form action="/_PHP/form.php" method="post">
+    <form
+        action="/_includesPHP/addElement.php"
+        method="post"
+    >
         <div class="form-group">
             <label>Model</label>
             <input
