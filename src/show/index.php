@@ -8,7 +8,7 @@
 <div class="container">
 
     <?php
-        include '../_includesPHP/deleteElement.php'; //удаление элемента по индексу
+        include '../_includesPHP/deleteElement/deleteElement.php'; //удаление элемента по индексу
         include '../_includesPHP/getArrayFromDB.php'; //получение массива из базы данных
         $connect->close(); // разорвали соединение
         include '../_includesPHP/sortArray.php'; //сортировка по Get запросу
