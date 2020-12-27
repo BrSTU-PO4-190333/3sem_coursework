@@ -13,7 +13,7 @@
 
 <div class="container">
     <form
-        action="/_includesPHP/addElement.php"
+        action="/_includesPHP/addElement/addElement.php"
         method="post"
     >
         <div class="form-group">
