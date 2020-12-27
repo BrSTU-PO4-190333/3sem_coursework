@@ -4,17 +4,103 @@
 
 \subsection{Выбор средств программирования}
 
-Сервер: LAMP - Linux Apache2 MySQL PHP.
+Операционная система: \textbf{Ubuntu 20.10}.
 
-Для установки сервера на Ubuntu подобных системах использовались команды:
+Сервер: \textbf{LAMP} - Linux Apache2 MySQL PHP.
 
-\begin{verbatim}
-sudo apt update
+Блокнот: \textbf{VS Code 1.52.1}.
 
-sudo apt install apache2 php libapache2-mod-php php-mysql mysql-server phpmyadmin
-\end{verbatim}
+Браузер: \textbf{Mozilla Firefox 81.0.2}
 
-После установки пакета "phpmyadmin" консоль предложит придумать пароль. Этот пароль будет пользователя под логином "phpmyadmin". Заходим на сраницу localhost/phpmyadmin под логином "phpmyadmin" и придуманым паролем - и видем, что мы не можем создавать базы данных. Для создания пользователя с такими привилегиями выполним скрипты:
+\subsubsection{Установка LAMP}
+
+Перед установкой LAMP обновляем список пакетов, используя команду \textbf{sudo apt update}. Устанавливаем LAMP командой \textbf{sudo apt install apache2 php libapache2-mod-php php-mysql mysql-server phpmyadmin}. Подробный скриншот на рисунке~\ref{fig:sudo-apt-install-apache2} (стр.~\pageref{fig:sudo-apt-install-apache2}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]
+        {../_input/programDevelopment/install/sudo-apt-install-step-0.png}
+    }
+    \caption{Установка LAMP}
+    \label{fig:sudo-apt-install-apache2}
+\end{figure}
+
+При установке пакетов нужно согласиться с установкой, нажав на клавишу <<Y>>, скриншот терминала на рисунке~\ref{fig:sudo-apt-install-apache2-step-1} (стр.~\pageref{fig:sudo-apt-install-apache2-step-1}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]
+        {../_input/programDevelopment/install/sudo-apt-install-step-1.png}
+    }
+    \caption{Согласиться установить LAMP: нажать клавишу <<Y>>}
+    \label{fig:sudo-apt-install-apache2-step-1}
+\end{figure}
+
+Выбираем флажки при установке, скриншот на рисунке~\ref{fig:sudo-apt-install-apache2-step-2} (стр.~\pageref{fig:sudo-apt-install-apache2-step-2}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]
+        {../_input/programDevelopment/install/sudo-apt-install-step-2.png}
+    }
+    \caption{Выбор флажков того, что установить, при установке LAMP}
+    \label{fig:sudo-apt-install-apache2-step-2}
+\end{figure}
+
+Отвечаем на вопрос, скриншот на рисунке~\ref{fig:sudo-apt-install-apache2-step-3} (стр.~\pageref{fig:sudo-apt-install-apache2-step-3}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]
+        {../_input/programDevelopment/install/sudo-apt-install-step-3.png}
+    }
+    \caption{Вопрос при установке LAMP}
+    \label{fig:sudo-apt-install-apache2-step-3}
+\end{figure}
+
+После установки пакета <<phpmyadmin>> консоль предложит придумать пароль. Этот пароль будет пользователя под логином <<phpmyadmin>>, скриншот на рисунке~\ref{fig:sudo-apt-install-apache2-step-4} (стр.~\pageref{fig:sudo-apt-install-apache2-step-4}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/install/sudo-apt-install-step-4.png}
+    }
+    \caption{Придумываем пароль для пользователя под логином <<phpmyadmin>>}
+    \label{fig:sudo-apt-install-apache2-step-4}
+\end{figure}
+
+Как ввели пароль, то его нужно повторить. Повторяем пароль. Скришнот терминала на рисунке~\ref{fig:sudo-apt-install-apache2-step-5} (стр.~\pageref{fig:sudo-apt-install-apache2-step-5}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/install/sudo-apt-install-step-5.png}
+    }
+    \caption{Повторяем пароль для пользователя под логином <<phpmyadmin>>}
+    \label{fig:sudo-apt-install-apache2-step-5}
+\end{figure}
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/install/sudo-apt-install-step-6.png}
+    }
+    \caption{Конец устаноки LAMP}
+    \label{fig:sudo-apt-install-apache2-step-6}
+\end{figure}
+
+После установки Apache2, можем проверить сайт, вписав \textbf{localhost} в адресную строку браузера. Скриншот браузера с открытым сайтом на рисунке~\ref{fig:sudo-apt-install-apache2-step-7} (стр.~\pageref{fig:sudo-apt-install-apache2-step-7}).
+
+\begin{figure}[!htp]
+    \center{
+        \includegraphics[width=16cm]{../_input/programDevelopment/install/sudo-apt-install-step-7.png}
+    }
+    \caption{Открываем сайт localhost в браузере}
+    \label{fig:sudo-apt-install-apache2-step-7}
+\end{figure}
+
+\newpage
+
+\subsubsection{Создание нового пользователя <<phpmyadmin>> с полными правами доступа}
+
+Заходим на сраницу <<\textbf{localhost/phpmyadmin}>> под логином <<phpmyadmin>> и придуманым паролем - и видем, что мы не можем создавать базы данных. Для создания пользователя с такими привилегиями выполним скрипты:
 
 \begin{verbatim}
 sudo mysql -u root -p
@@ -28,7 +114,7 @@ FLUSH PRIVILEGES;
 
 Заходим на сраницу localhost/phpmyadmin под логином admin и паролем 111111 - и теперь можем создавать базу данных.
 
-\hspace{0pt}\\
+\subsubsection{Выделяем свой домен}
 
 Создаем директорию для сайта
 
@@ -72,6 +158,8 @@ sudo a2ensite mysite
 sudo systenctl reload apache2
 \end{verbatim}
 
+\subsubsection{Запускаем возможность работы файла настроек <<.htaccess>>}
+
 В файле меняем строчку "AllowOverride None" на "AllowOverride All"
 
 \begin{verbatim}
@@ -88,6 +176,8 @@ sudo systenctl reload apache2
 \begin{verbatim}
 /var/www/mysite/src
 \end{verbatim}
+
+\subsubsection{Включаем debug mode PHP}
 
 Чтобы отображались ошибки PHP заносим поля:
 
