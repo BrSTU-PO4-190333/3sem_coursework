@@ -217,7 +217,7 @@
     \label{fig:sudo-mkdir-mysite}
 \end{figure}
 
-Так как папка создана через sudo, то изменять её можно только через sudo (под правами суперпользователя). Чтобы мог её изменять обычный пользователь, то нужно выдать ему права. Выдадим права командой \textbf{sudo chown -R \$USER:\$USER /var/www/mysite}.
+Так как папка создана через sudo, то изменять её можно только через sudo (под правами суперпользователя). Чтобы мог её изменять обычный пользователь, то нужно выдать ему права. Выдадим права командой \textbf{sudo chown -R \$USER:\$USER /var/www/mysite} (или \textbf{sudo chmod 0777 -R /var/www/mysite}).
 Скриншот терминала на рисунке~\ref{fig:sudo-chown} (стр.~\pageref{fig:sudo-chown}).
 
 \begin{figure}[p]
@@ -388,18 +388,18 @@
 В файле меняем строчку "AllowOverride None" на "AllowOverride All"
 
 \begin{verbatim}
-<Directory /var/www/>
-        Options Indexes FollowSymLinks
-#       AllowOverride None
-        AllowOverride All
-        Require all granted
-</Directory>
+        <Directory /var/www/>
+                Options Indexes FollowSymLinks
+        #       AllowOverride None
+                AllowOverride All
+                Require all granted
+        </Directory>
 \end{verbatim}
 
 Теперь будет работать файл настроек ".htaccess". Создаем файл в директории
 
 \begin{verbatim}
-/var/www/mysite/src
+        /var/www/mysite/src
 \end{verbatim}
 
 \subsubsection*{Включаем debug mode PHP}
@@ -407,9 +407,9 @@
 Чтобы отображались ошибки PHP заносим поля:
 
 \begin{verbatim}
-php_flag display_startup_errors on
-php_flag display_errors on
-php_flag html_errors on
+        php_flag display_startup_errors on
+        php_flag display_errors on
+        php_flag html_errors on
 \end{verbatim}
 
 \newpage
@@ -418,147 +418,24 @@ php_flag html_errors on
 
 \subsection{Разработка модулей}
 
+\textbf{Использованы модули-HTML}
+\begin{enumerate}
+    \item formInner - модуль, который содержит разметку формы
+    \item header - модуль, который сожержит навигацию по сайту
+    \item menu - модуль, который содержит HTML разметку меню
+\end{enumerate}
 
-
-\subsubsection*{Использованы модули-сраницы}
-
+\textbf{Использованы модули-PHP}
 \begin{itemize}
-    \item add
-    \item show
+    \item addElement - модуль, который посылает запрос на создание элемента
+    \item connect - модуль, который создает соединение SQL
+    \item createTable - модуль, который посылает запрос на создание таблицы
+    \item deleteElement - модуль, который посылает запрос на удаление элемента
+    \item deleteTable - модуль, который посылает запрос на удаление таблицы
+    \item editElement - модуль, который посылает запрос на редактирование элемента
+    \item getArrayFromDB - модуль, который получает данные из базы данных в массив
+    \item saveCSV - модуль, который на основе массива создает CSV файл
+    \item search - модуль, который ищет элементы в массиве и возвращает новый массив
 \end{itemize}
-
-
-
-\subsubsection*{Использованы модули-скрипты}
-
-\begin{itemize}
-    \item form
-\end{itemize}
-
-
-
-\subsubsection*{Использованы многоразовые модули (для include)}
-
-\begin{itemize}
-    \item connect
-    \item header
-    \item menu
-\end{itemize}
-
-
-
-\subsubsection*{Модуль add}
-
-\underline{Подключённые модули}:
-
-\begin{enumerate}
-    \item header
-    \item menu
-\end{enumerate}
-
-\underline{Входные параметры}:
-
-\begin{enumerate}
-    \item Нет
-\end{enumerate}
-
-\underline{Назначение}: страница, которая имеет поля. После отправки, которые будет добавлены в базу MySQL.
-
-\underline{Возвращаемые данные}: добавлены поля в базу данных MySQL.
-
-% = = =
-
-\subsubsection*{Модуль show}
-
-\underline{Подключённые модули}:
-
-\begin{enumerate}
-    \item header
-    \item menu
-    \item connect
-\end{enumerate}
-
-\underline{Входные параметры}:
-
-\begin{enumerate}
-    \item Нет
-\end{enumerate}
-
-\underline{Назначение}: страница, которая возвращает код HTML с удобочитаемой таблицой с даными.
-
-\underline{Возвращаемые данные}: страница с отрисованной таблицей HTML.
-
-% = = =
-
-\subsubsection*{Модуль form}
-
-\underline{Подключённые модули}:
-
-\begin{enumerate}
-    \item connect
-\end{enumerate}
-
-\underline{Входные параметры}:
-
-\begin{enumerate}
-    \item model - модель (желаемый тип - строка)
-    \item name - имя (желаемый тип - строка)
-    \item onBox - количество в коробке (желаемый тип - не отрицательное целочисленное значение)
-    \item weight - вес (желаемый тип - число с плавающей точкой)
-    \item m3 - объем (желаемый тип - число с плавающей точкой)     
-    \item series - серия (желаемый тип - строка) 
-\end{enumerate}
-
-\underline{Назначение}: скрипт, который принимает входный параметры по средствам POST запросов. Использует входные параметры для добавления в базу данных.
-
-\underline{Возвращаемые данные}: данные появяться в базе MySQL. Сраница перенаправаться в корень.
-
-% = = =
-
-\subsubsection*{Модуль connect}
-
-\underline{Входные параметры}:
-
-\begin{enumerate}
-    \item site - сайт (желаемы тип - строка, например,  "localhost")
-    \item userDB - логин в базе данных (желаемый тип - строка, например, "admin")
-    \item passwordDB - пароль от базы данных (желаемый тип строка, например, "111111")
-    \item database - имя базы данных (желаемый тип - строка, например, "productsdb")
-    \item table - имя таблицы (желаемый тип - строка, например, "productstable")
-\end{enumerate}
-
-\underline{Назначение}: скрипт, который под входными данными подключится к базе данных.
-
-\underline{Возвращаемые данные}: удачное/неудачное подключение к базе данных
-
-% = = =
-
-\subsubsection*{Модуль header}
-
-\underline{Входные параметры}:
-
-\begin{enumerate}
-    \item title - название страницы (желаемый тип - строка)
-\end{enumerate}
-
-\underline{Назначение}: страница с кодом HTML c заполненым тегом head.
-
-\underline{Возвращаемые данные}: вставленый код HTML.
-
-% = = =
-
-\subsubsection*{Модуль menu}
-
-\underline{Входные параметры}:
-
-\begin{enumerate}
-    \item нет
-\end{enumerate}
-
-\underline{Назначение}: страница с кодом HTML c заполненым меню.
-
-\underline{Возвращаемые данные}: вставленый код HTML.
-
-% = = =
 
 \newpage
