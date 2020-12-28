@@ -32,32 +32,32 @@
                 <tr>
                     <th>Model</th>
                     <th><input type="radio" name="sort_by" value="model" /></th>
-                    <th><input type="text" name="Smodel" style="width: 100%;"  disabled/></th>
+                    <th><input type="text" name="Smodel" style="width: 100%;" /></th>
                 </tr>
                 <tr>
                     <th>Name</th>
                     <th><input type="radio" name="sort_by" value="name" /></th>
-                    <th><input type="text" name="Sname" style="width: 100%;"  disabled/></th>
+                    <th><input type="text" name="Sname" style="width: 100%;" /></th>
                 </tr>
                 <tr>
                     <th>OnBox</th>
                     <th><input type="radio" name="sort_by" value="onBox" /></th>
-                    <th><input type="text" name="SonBox" style="width: 100%;"  /></th>
+                    <th><input type="text" name="SonBox" style="width: 100%;" /></th>
                 </tr>
                 <tr>
                     <th>Weight</th>
                     <th><input type="radio" name="sort_by" value="weight" /></th>
-                    <th><input type="text" name="Sweight" style="width: 100%;" disabled/></th>
+                    <th><input type="text" name="Sweight" style="width: 100%;" /></th>
                 </tr>
                 <tr>
                     <th>M<sup>3</sup></th>
                     <th><input type="radio" name="sort_by" value="m3" /></th>
-                    <th><input type="text" name="Sm3" style="width: 100%;" disabled/></th>
+                    <th><input type="text" name="Sm3" style="width: 100%;" /></th>
                 </tr>
                 <tr>
                     <th>Series</th>
                     <th><input type="radio" name="sort_by" value="series" /></th>
-                    <th><input type="text" name="Sseries" style="width: 100%;" disabled/></th>
+                    <th><input type="text" name="Sseries" style="width: 100%;" /></th>
                 </tr>
                 <tr>
                     <th colspan="3">
