@@ -15,6 +15,58 @@
         include '../_includesPHP/saveCSV/saveCSV.php'; //сохранение массива в CSV файл
     ?>
 
+    <form
+        action="index.php"
+        method="get"
+    >
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Field</th>
+                    <th scope="col">Search</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Model</th>
+                    <th><input type="text" name="Smodel" disabled/></th>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <th><input type="text" name="Sname" disabled/></th>
+                </tr>
+                <tr>
+                    <th>OnBox</th>
+                    <th><input type="text" name="SonBox" /></th>
+                </tr>
+                <tr>
+                    <th>Weight</th>
+                    <th><input type="text" name="Sweight" disabled/></th>
+                </tr>
+                <tr>
+                    <th>M<sup>3</sup></th>
+                    <th><input type="text" name="Sm3" disabled/></th>
+                </tr>
+                <tr>
+                    <th>Series</th>
+                    <th><input type="text" name="Sseries" disabled/></th>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <button
+                            type="submit"
+                            class="btn btn-outline-dark"
+                            style="width: 100%;"
+                        >Start search</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        
+    </form>
+
+
+
     <p
         style="text-align: right;"
     >
@@ -44,7 +96,22 @@
         </thead>
         <tbody>
 
-            <?php for ($i = 0; $i < count($arr); $i += 1){ // цикличный повтор HTML кода ниже?>
+            <?php
+                $newArray = array();
+                $j = 0;
+                // цикличный повтор HTML кода ниже
+                for ($i = 0; $i < count($arr); $i += 1)
+                { 
+                    $Search_onBox = isset($_GET['SonBox']) ? $_GET['SonBox'] : "";
+
+                    if (
+                        $Search_onBox == ""
+                        ||
+                        (strpos($arr[$i]['onBox'], $Search_onBox) !== False)
+                    )
+                    {
+                        $newArray[$j] = $arr[$i];
+            ?>
             <tr>
                 <td>
                     <?php
@@ -74,7 +141,10 @@
                     </a>
                 </td>
             </tr>
-            <?php } //end cycle?>
+            <?php
+                    } //end if
+                } //end cycle
+            ?>
 
         </tbody>
     </table>
