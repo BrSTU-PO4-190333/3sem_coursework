@@ -1,0 +1,157 @@
+\newpage
+\section{РАЗРАБОТКА АЛГОРИТМОВ}
+
+\subsubsection*{Алгоритм подключения к базе данных}
+
+\underline{Исходные данные}:
+\begin{enumerate}
+    \item имя сервера
+    \item логин от phpmyadmin
+    \item пароль от phpmyadmin
+    \item имя базы данных
+\end{enumerate}
+
+\underline{Алгоритм}:
+\begin{enumerate}
+    \item производим SQL запрос базе данных
+    \item Если запрос не удачный, то вывести ошибку и закончить выполнение скрипта
+\end{enumerate}
+
+\underline{Выходные данные}:
+\begin{enumerate}
+    \item сформированно подключение к базе данных
+\end{enumerate}
+
+% = = =
+
+\subsubsection*{Алгоритм добавление нового элемента}
+
+\underline{Исходные данные}:
+\begin{enumerate}
+    \item форма с полями, которые получены методом GET
+    \item база MySQL
+\end{enumerate}
+
+\underline{Алгоритм}:
+\begin{enumerate}
+    \item взятие полей из формы методом GET
+    \item сохраниние полей в таблицу с помощью SQL запроса в базу данных phpmyadmin
+\end{enumerate}
+
+\underline{Выходные данные}:
+\begin{enumerate}
+    \item база данных с добавленным элементом
+    \item перенаправление на страницу вывода таблицы
+\end{enumerate}
+
+% = = =
+
+\subsubsection*{Алгоритм просмотр элементов}
+
+\underline{Исходные данные}: 
+\begin{enumerate}
+    \item база MySQL
+\end{enumerate}
+
+\underline{Алгоритм}:
+\begin{enumerate}
+    \item вывод шапки таблицы
+    \item получение массива элементов из базы данных
+    \item приминение фильтров (поиска)
+    \item применение сортировки по полю
+    \item цикличный вывод элементов
+\end{enumerate}
+
+\underline{Выходные данные}:
+\begin{enumerate}
+    \item сформированная HTML страница
+\end{enumerate}
+
+% = = =
+
+\subsubsection*{Алгоритм удаления элемента}
+
+\underline{Исходные данные}:
+\begin{enumerate}
+    \item HTML таблица
+\end{enumerate}
+
+\underline{Алгоритм}:
+\begin{enumerate}
+    \item с помощью таблицы зная элемент, выбираем его, нажав например на мусорку, которая дает GET запрос с ID
+    \item получаем ID через GET запрос
+    \item выполняем скрипт подключения к базе данных
+    \item выполняем SQL запрос по удалению по полю ID
+\end{enumerate}
+
+\underline{Выходные данные}:
+\begin{enumerate}
+    \item база данных с удаленным элементом
+    \item перенаправление на эту же страницы вывода таблицы
+\end{enumerate}
+
+% = = =
+
+\subsubsection*{Алгоритм удаления элемента}
+
+\underline{Исходные данные}:
+\begin{enumerate}
+    \item HTML таблица
+\end{enumerate}
+
+\underline{Алгоритм}:
+\begin{enumerate}
+    \item с помощью таблицы зная элемент, выбираем его, нажав например на карандаш, которая дает GET запрос с ID
+    \item получаем ID через GET запрос
+    \item перенаправляемся на страницу с редактированием полей
+    \item выполняем скрипт подключения к базе данных
+    \item выполняем SQL запрос замене полей по ID
+\end{enumerate}
+
+\underline{Выходные данные}:
+\begin{enumerate}
+    \item база данных с обновленным элементом
+    \item перенаправление на страницу вывода таблицы
+\end{enumerate}
+
+% = = =
+
+\subsubsection*{Алгоритм создания таблицы}
+
+\underline{Исходные данные}:
+\begin{enumerate}
+    \item удачное подключение к базе данных
+\end{enumerate}
+
+\underline{Алгоритм}:
+\begin{enumerate}
+    \item производим SQL запрос базе данных для создания таблицы
+    \item Если запрос не удачный, то вывести ошибку
+\end{enumerate}
+
+\underline{Выходные данные}:
+\begin{enumerate}
+    \item в базе данных появилась таблица
+\end{enumerate}
+
+% = = =
+
+\subsubsection*{Алгоритм удаления таблицы}
+
+\underline{Исходные данные}:
+\begin{enumerate}
+    \item удачное подключение к базе данных
+\end{enumerate}
+
+\underline{Алгоритм}:
+\begin{enumerate}
+    \item производим SQL запрос базе данных для удаления таблицы
+    \item Если запрос не удачный, то вывести ошибку
+\end{enumerate}
+
+\underline{Выходные данные}:
+\begin{enumerate}
+    \item в базе данных удалена таблица
+\end{enumerate}
+
+\newpage
