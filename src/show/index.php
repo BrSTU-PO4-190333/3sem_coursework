@@ -11,6 +11,7 @@
         include '../_includesPHP/deleteElement/deleteElement.php'; //удаление элемента по индексу
         include '../_includesPHP/getArrayFromDB/getArrayFromDB.php'; //получение массива из базы данных
         $connect->close(); // разорвали соединение
+        include '../_includesPHP/search/search.php'; //сортировка по Get запросу
         include '../_includesPHP/sortArray.php'; //сортировка по Get запросу
         include '../_includesPHP/saveCSV/saveCSV.php'; //сохранение массива в CSV файл
     ?>
@@ -19,40 +20,47 @@
         action="index.php"
         method="get"
     >
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Field</th>
+                    <th scope="col">Sort by</th>
                     <th scope="col">Search</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th>Model</th>
-                    <th><input type="text" name="Smodel" disabled/></th>
+                    <th><input type="radio" name="sort_by" value="model" /></th>
+                    <th><input type="text" name="Smodel" style="width: 100%;"  disabled/></th>
                 </tr>
                 <tr>
                     <th>Name</th>
-                    <th><input type="text" name="Sname" disabled/></th>
+                    <th><input type="radio" name="sort_by" value="name" /></th>
+                    <th><input type="text" name="Sname" style="width: 100%;"  disabled/></th>
                 </tr>
                 <tr>
                     <th>OnBox</th>
-                    <th><input type="text" name="SonBox" /></th>
+                    <th><input type="radio" name="sort_by" value="onBox" /></th>
+                    <th><input type="text" name="SonBox" style="width: 100%;"  /></th>
                 </tr>
                 <tr>
                     <th>Weight</th>
-                    <th><input type="text" name="Sweight" disabled/></th>
+                    <th><input type="radio" name="sort_by" value="weight" /></th>
+                    <th><input type="text" name="Sweight" style="width: 100%;" disabled/></th>
                 </tr>
                 <tr>
                     <th>M<sup>3</sup></th>
-                    <th><input type="text" name="Sm3" disabled/></th>
+                    <th><input type="radio" name="sort_by" value="m3" /></th>
+                    <th><input type="text" name="Sm3" style="width: 100%;" disabled/></th>
                 </tr>
                 <tr>
                     <th>Series</th>
-                    <th><input type="text" name="Sseries" disabled/></th>
+                    <th><input type="radio" name="sort_by" value="series" /></th>
+                    <th><input type="text" name="Sseries" style="width: 100%;" disabled/></th>
                 </tr>
                 <tr>
-                    <th colspan="2">
+                    <th colspan="3">
                         <button
                             type="submit"
                             class="btn btn-outline-dark"
@@ -62,6 +70,7 @@
                 </tr>
             </tbody>
         </table>
+        
         
     </form>
 
@@ -97,20 +106,9 @@
         <tbody>
 
             <?php
-                $newArray = array();
-                $j = 0;
                 // цикличный повтор HTML кода ниже
                 for ($i = 0; $i < count($arr); $i += 1)
                 { 
-                    $Search_onBox = isset($_GET['SonBox']) ? $_GET['SonBox'] : "";
-
-                    if (
-                        $Search_onBox == ""
-                        ||
-                        (strpos($arr[$i]['onBox'], $Search_onBox) !== False)
-                    )
-                    {
-                        $newArray[$j] = $arr[$i];
             ?>
             <tr>
                 <td>
@@ -142,7 +140,6 @@
                 </td>
             </tr>
             <?php
-                    } //end if
                 } //end cycle
             ?>
 
