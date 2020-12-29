@@ -385,7 +385,7 @@
 
 \subsubsection*{Запускаем возможность работы файла настроек <<.htaccess>>}
 
-В файле меняем строчку "AllowOverride None" на "AllowOverride All"
+В файле \textbf{/etc/apache2/apache2.conf} меняем строчку <<\textbf{AllowOverride None}>> на <<\textbf{AllowOverride All}>>
 
 \begin{verbatim}
         <Directory /var/www/>
@@ -396,15 +396,13 @@
         </Directory>
 \end{verbatim}
 
-Теперь будет работать файл настроек ".htaccess". Создаем файл в директории
+Теперь будет работать файл настроек <<\textbf{.htaccess}>>, который будет лежать в корне проекта. Создаем файл в директории <<\textbf{/var/www/mysite/src}>>.
 
-\begin{verbatim}
-        /var/www/mysite/src
-\end{verbatim}
+
 
 \subsubsection*{Включаем debug mode PHP}
 
-Чтобы отображались ошибки PHP заносим поля:
+Чтобы отображались ошибки PHP заносим поля в файл настроек <<\textbf{.htaccess}>>:
 
 \begin{verbatim}
         php_flag display_startup_errors on
