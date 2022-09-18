@@ -1,11 +1,11 @@
 \documentclass[12pt, a4paper, simple]{eskdtext}
 
-\usepackage{../_sty/title_variables}
-\usepackage{../_sty/eskd_variables}
-\usepackage{../_sty/sourceCode}
-\usepackage{../_sty/tableOfContent}
-\usepackage{../_sty/pictures}
-\usepackage{../_sty/hyperlinks}
+\usepackage{_sty/title_variables}
+\usepackage{_sty/eskd_variables}
+\usepackage{_sty/sourceCode}
+\usepackage{_sty/tableOfContent}
+\usepackage{_sty/pictures}
+\usepackage{_sty/url}
 
 % Графа 1 (наименование изделия/документа)
 \ESKDcolumnI{\titlePageTopic\\Пояснительная записка}
@@ -18,25 +18,24 @@
     \begin{ESKDtitlePage}
         \input{_input/titlePagePZ.tex}
     \end{ESKDtitlePage}
-    % Содержание
-    \tableofcontents 
+
+    % ТЗ
+    \ESKDthisStyle{empty}
+    Здесь лист с ТЗ.
     \newpage
-    % Введение
+    \ESKDthisStyle{formII}
+
+    % Содержание
+    \tableofcontents
+    \paragraph{ПРИЛОЖЕНИЕ А. ТЕКСТ ПРОГРАММЫ}
+    \paragraph{ПРИЛОЖЕНИЕ Б. СХЕМА АЛГОРИТМА}
+    \newpage
+
     \input{_input/introduction/introduction.tex} 
-    % 1. Постановка задачи
     \input{_input/formulationOfTheProblem/formulationOfTheProblem.tex} 
-    % 2. Разработка алгоритмов
     \input{_input/algorithmDevelopment/algorithmDevelopment.tex}
-    % 3. Разработка программы
     \input{_input/programDevelopment/programDevelopment.tex}
-    % 4. Тестирование программы
     \input{_input/testingTheProgram/testingTheProgram.tex}
-    % Заключение
     \input{_input/conclusion/conclusion.tex}
-    % Список использованных источников
     \input{_input/literature/literature.tex}
-    % Приложение А. Текст программы
-    \addcontentsline{toc}{section}{Приложение А. Текст программы}
-    % Приложение Б. Схема алгоритма
-    \addcontentsline{toc}{section}{Приложение Б. Схема алгоритма}
 \end{document}
